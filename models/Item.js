@@ -22,10 +22,18 @@ Item.init(
           category_id: {
             type: DataTypes.INTEGER,
             references: {
-               model: 'category',
+              model: 'category',
               key: 'id',
+              defaultValue: 1, 
             },
           },
+          user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: 'user',
+              key: 'id',
+            },
+          }
     },
     {
     sequelize,
