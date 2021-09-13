@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         // If successful, redirect the browser to the profile page
         // TODO: change location replace route.
-        document.location.replace('/profile');
+        document.location.replace('/userProfile');
       } else {
         alert(response.statusText);
       }
@@ -44,7 +44,7 @@ const loginFormHandler = async (event) => {
         
             if (response.ok) {
                         // TODO: change location replace route.
-              document.location.replace('/profile');
+              document.location.replace('/userProfile');
             } else {
               alert(response.statusText);
             }
