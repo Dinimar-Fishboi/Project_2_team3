@@ -27,7 +27,7 @@ const loginFormHandler = async (event) => {
   const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#name-signup').value.trim();
+    const username = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     const confirmPassword = document.querySelector('#password-confirm').value.trim();
@@ -35,10 +35,10 @@ const loginFormHandler = async (event) => {
     if (password === confirmPassword){
 
         console.log("it matches!")
-        if (name && email && password) {
+        if (username && email && password) {
             const response = await fetch('/api/users', {
               method: 'POST',
-              body: JSON.stringify({ name, email, password }),
+              body: JSON.stringify({ username, email, password }),
               headers: { 'Content-Type': 'application/json' },
             });
         
@@ -51,7 +51,7 @@ const loginFormHandler = async (event) => {
           }
     } else {
         // TODO: make this a different components
-        console.alert(" password doesn't match - make it something memorable!")
+        console.log(" password doesn't match - make it something memorable!")
     }
   
    
@@ -59,9 +59,9 @@ const loginFormHandler = async (event) => {
 
 
 document
-.querySelector('.login-form')
+.querySelector('#loginForm')
 .addEventListener('submit', loginFormHandler);
 
 document
-.querySelector('.signup-form')
+.querySelector('#signupForm')
 .addEventListener('submit', signupFormHandler);
