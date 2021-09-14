@@ -65,7 +65,7 @@ router.get('/userProfile', (req, res) => {
     return;
   }
 
-  res.render('userProfile');
+  res.render('userProfile',{logged_in:req.session.logged_in});
 });
 
 router.get('/search', (req, res) => {
