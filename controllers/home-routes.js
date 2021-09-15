@@ -68,10 +68,28 @@ router.get('/userProfile', (req, res) => {
   res.render('userProfile',{logged_in:req.session.logged_in});
 });
 
-router.get('/search', (req, res) => {
-
-  res.render('search');
+router.get('/items/:category', async (req, res) => {
+  try {
+      const categoryId = req.params.category;
+      const existingItems = await Item.findAll({
+      where:{
+          category_id : categoryId
+      },
+      order: [['id','DESC']],
+    });
+    
+  //   const editedItems = existingItems.map((item) => item.get({ plain: true }));
+    res.status(200).json(existingItems);
+    
+  //   res.render('search', { 
+  //         editedItems, 
+  //         logged_in: req.session.logged_in 
+  //   });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
 
 
 
