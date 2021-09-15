@@ -1,5 +1,48 @@
+<div class="container center">
+  <div class="row">
+  <h3 class="flow-text">Search for items you can exchange your item with</h3>
+  <div class="col s12">
+    <label>Search by Category</label>
+  <select class="browser-default">
+    <option value="" disabled selected>I am looking for...</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+  </div>
+</div>
+
 <div class="row">
 
+{{#each editedItems as |i|}}
+<div class="col s12 m4">
+      <!---->
+      <div class="card">
+        <div class="card-image">
+          <img src="/images/strawberry.jpg">
+          <span class="card-title">{{i.title}}</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red" href="/item/{{i.id}}"><i class="material-icons">zoom_in</i></a>
+        </div>
+        <div class="card-content">
+          <p class="truncate">{{i.description}}</p>
+        </div>
+      </div>
+      <!---->
+    </div>
+{{/each}}
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+{{!-- <div class="row"> --}}
+{{!-- 
 {{#each editedItems as |i|}}
 <div class="col s12 m3">
       <!---->
@@ -17,4 +60,4 @@
     </div>
 {{/each}}
 
-</div>
+</div> --}}
