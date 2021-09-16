@@ -57,7 +57,7 @@ const searchByCategory = async (categoryId) => {
            `<div class="col s12 m4">
                <div class="card">
                <div class="card-image">
-               <img src="/images/strawberry.jpg">
+               <img src="/images/${b.category_id}.jpg">
                <span class="card-title">${b.title}</span>
                <a class="btn-floating halfway-fab waves-effect waves-light red" href="/item/${b.id}"><i class="material-icons">zoom_in</i></a>
              </div>
