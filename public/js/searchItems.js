@@ -11,8 +11,7 @@ function checkthisfunction() {
 
 const searchByCategory = async (categoryId) => {
     const response = await fetch(`/items/${categoryId}`, {
-      method: 'GET',
-    //   body:{ca},
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
     });
   
