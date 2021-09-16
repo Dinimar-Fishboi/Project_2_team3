@@ -13,14 +13,13 @@
   </ul>
 </div>
 <script src="script.js"></script> -->
-<form>
+<div class="container">
+  <form>
   <label for="category">Category:</label>
-  <select id="dropdown" name="category">
-    <option value="a">Produce</option>
-    <option value="b">Arts and Crafts</option>
-    <option value="c">Clothing </option>
-    <option value="d">Services</option>
+  <select id="category" class="browser-default" onfocus="displayOptions()">
+   <option value="" disabled selected>Select the category..</option>
   </select>
+
 
   <label for="lname">Description:</label><br />
   <input type="text" id="lname" name="lname" value="" /><br /><br />
@@ -39,4 +38,8 @@
   {{/if}}
 
 </div>
+
+</div>
+
 <script src="./js/profile.js"></script>
+<script src="./js/searchItems.js"></script>
