@@ -68,15 +68,32 @@ router.get('/userProfile', (req, res) => {
   res.render('userProfile',{logged_in:req.session.logged_in});
 });
 
-router.get('/search', (req, res) => {
-
-  res.render('search');
+router.post('/items/:category', async (req, res) => {
+  try {
+      const categoryId = req.params.category;
+      const existingItems = await Item.findAll({
+      where:{
+          category_id : categoryId
+      },
+      order: [['id','DESC']],
+    });
+    
+         res.json(existingItems);
+    
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-
-
-
-
+router.get('/categories', async (req, res) => {
+  try {
+      const existingItems = await Category.findAll();
+      res.json(existingItems);
+    
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 // Login route

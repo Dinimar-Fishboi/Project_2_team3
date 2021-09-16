@@ -8,10 +8,28 @@ const categoryData = [
     name: 'Vegitables',
   },
   {
-    name: 'Clothes',
+    name: 'Clothing',
   },
   {
     name: 'Fruits',
+  },
+  {
+    name: 'Art and Craft',
+  },
+  {
+    name: 'Entertainment',
+  },
+  {
+    name: 'Homegoods',
+  },
+  {
+    name: 'Sporting Goods',
+  },
+  {
+    name: 'Toys',
+  },
+  {
+    name: 'Garden and Outdoors',
   },
 ];
 
