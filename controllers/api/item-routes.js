@@ -10,7 +10,9 @@ const withAuth = require('../../utils/auth');
         res.status(404).json({ message: 'item is not available with this id!' });
         return;
       }
-      res.status(200).json(itemData);
+      // Serialised data for items fetched by user id.
+      const editedItemData = itemData.map((item) => item.get({ plain: true }));
+      res.status(200).json(editedItemData);
     } catch (err) {
       res.status(500).json(err);
     }
