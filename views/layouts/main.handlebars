@@ -34,7 +34,11 @@
           <li><a href="/">Home</a></li>
           <li><a href="/search">Search Items</a></li>
           <li><a href="/userProfile">My Profile</a></li>
-          <li><a href="/login">Login</a></li>
+          {{#if logged_in}}
+              <li><button class="button is-text" id="logoutBtn">Logout</button></li>
+          {{else}}
+              <li><a href="/login">Login</a></li>
+          {{/if}}
         </ul>
       </header>
 
@@ -64,7 +68,6 @@
         <div class="footer-copyright">
           <div class="container">
            Copyright © 2021 by Barter Place 
-          
           </div>
         </div>
       </footer>
