@@ -14,20 +14,22 @@
 </div>
 <script src="script.js"></script> -->
 <div class="container">
-  <form id="postItem">
+  <form id='postItem'>
   <label for="category">Category:</label>
   <select id="category" class="browser-default" onfocus="displayOptions()">
    <option value="" disabled selected>Select the category..</option>
   </select>
 
 
-  <label for="lname">Description:</label><br />
-  <input type="text" id="lname" name="lname" value="" /><br /><br />
-    <input type="text" name="text" id="txt" placeholder="Title" required />
-    <button type="submit" class="btn-list">
-      Post new Item
-      <i class="fa fa-plus" aria-hidden="true" id="postItem"></i>
-    </button>
+    <label for="lname">Description:</label><br />
+      <input type="text" id="lname" name="lname" value="" /><br /><br />
+    
+    <label for="txt">Title:</label><br />
+      <input type="text" name="txt" id="txt" placeholder="Title"/>
+        <button type="submit" class="btn-list">
+          Add new Item
+        </button>
+    <br>
 </form>
 <div class="container">
   {{#if items.length}}
