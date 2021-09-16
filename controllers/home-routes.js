@@ -78,23 +78,16 @@ router.get('/items/:category', async (req, res) => {
       order: [['id','DESC']],
     });
     
-  //   const editedItems = existingItems.map((item) => item.get({ plain: true }));
-    res.status(200).json(existingItems);
+      const editedItems = existingItems.map((item) => item.get({ plain: true }));
     
-  //   res.render('search', { 
-  //         editedItems, 
-  //         logged_in: req.session.logged_in 
-  //   });
+      res.render('search', { 
+          editedItems, 
+          logged_in: req.session.logged_in 
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
-
-
-
-
-
 
 
 // Login route
