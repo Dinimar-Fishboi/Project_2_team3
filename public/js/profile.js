@@ -28,3 +28,36 @@ myButtons.addEventListener('click',(e)=>{
 
     inputText.value="";
 })
+
+// getting the variables to post new content.
+
+async function addNewItem(event){
+    event.preventDefault();
+
+    const title = document.querySelector('#txt').value.trim();
+    const description = document.querySelector('#lname').value.trim();
+    // const category_id = document.querySelector('#lname').value.trim();
+
+    const e = document.getElementById("dropdown");
+    const category_id = e.options[e.selectedIndex].text;
+    console.log(category_id); 
+
+    if (title && description && category_id) {
+        const response = await fetch('/api/items', {
+            method: 'POST',
+            body: JSON.stringify({ title, description, category_id }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+    
+        if (response.ok) {
+            console.log(response);
+            document.location.replace('/userProfile');
+        } else {
+            console.log(response.statusText);
+        }
+        } else {
+            console.log("missing components, unable to POST")
+        }
+};
+
+document.querySelector('#postItem').addEventListener('submit', addNewItem)

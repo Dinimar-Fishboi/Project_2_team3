@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const {Category, Item} = require('../../models')
+const withAuth = require('../../utils/auth');
 
-router.get('/:id', async (req, res) => {
+  router.get('/:id', async (req, res) => {
     try {
-      const itemData = await Item.findByPk(req.params.id);
-      if (!itemData) {
+      const itemData = await User.findByPk(req.params.id);
+
+      if (!userData) {
         res.status(404).json({ message: 'item is not available with this id!' });
         return;
       }
@@ -15,11 +17,12 @@ router.get('/:id', async (req, res) => {
   });
   
   
-  router.put('/:id', async (req, res) => {
+  router.put('/:id', withAuth, async (req, res) => {
     try {
-      const itemData = await Item.update(req.body, {
+      const itemData = await item.update(req.body, {
         where: {
           id: req.params.id,
+          user_id: req.session.user_id,
         },
       });
       if (!itemData[0]) {
@@ -33,11 +36,12 @@ router.get('/:id', async (req, res) => {
   });
   
   
-  router.delete('/:id', async (req, res) => {
+  router.delete('/:id', withAuth, async (req, res) => {
     try {
-      const itemData = await Item.destroy({
+      const itemData = await item.destroy({
         where: {
           id: req.params.id,
+          user_id: req.session.user_id,
         },
       });
       if (!itemData) {
@@ -49,7 +53,5 @@ router.get('/:id', async (req, res) => {
       res.status(500).json(err);
     }
   });
-
-
 
 module.exports = router;
