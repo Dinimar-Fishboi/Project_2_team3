@@ -78,7 +78,32 @@ router.get('/items/:category', async (req, res) => {
       order: [['id','DESC']],
     });
     
+      // const editedItems = existingItems.map((item) => item.get({ plain: true }));
+
+       res.json(existingItems);
+    
+    //   res.render('search', { 
+    //       editedItems, 
+    //       logged_in: req.session.logged_in 
+    // });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/search/:category', async (req, res) => {
+  try {
+      const categoryId = req.params.category;
+      const existingItems = await Item.findAll({
+      where:{
+          category_id : categoryId
+      },
+      order: [['id','DESC']],
+    });
+    
       const editedItems = existingItems.map((item) => item.get({ plain: true }));
+
+      //  res.json(existingItems);
     
       res.render('search', { 
           editedItems, 
@@ -88,7 +113,6 @@ router.get('/items/:category', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 // Login route
 router.get('/login', (req, res) => {
