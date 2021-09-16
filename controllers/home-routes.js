@@ -85,6 +85,16 @@ router.post('/items/:category', async (req, res) => {
   }
 });
 
+router.get('/categories', async (req, res) => {
+  try {
+      const existingItems = await Category.findAll();
+      res.json(existingItems);
+    
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 // Login route
 router.get('/login', (req, res) => {

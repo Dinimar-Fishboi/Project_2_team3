@@ -1,3 +1,36 @@
+function displayOptions(){
+  searchCategories();
+
+    
+    // select.innerHTML="";
+    // select.innerHTML=htmlText;
+}
+
+const searchCategories = async () => {
+  const response = await fetch('/categories', {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if(response.ok){
+    let categories = await response.json();
+    const select = document.getElementById('category');
+    let optionText =`<option value="" disabled selected>I am looking for...</option>`;
+
+
+    categories.forEach(category => {
+      optionText = optionText+`
+      <option value=${category.id}>${category.name}</option>
+      `
+    });
+  
+    select.innerHTML=optionText;
+    console.log(optionText);
+  } else{
+    console.log("Error");
+  }
+
+}
 
 function displayResults() {
     const select = document.getElementById('category');
@@ -39,7 +72,7 @@ const searchByCategory = async (categoryId) => {
          </div>`
        });
       }
-      
+
     replaceDiv.innerHTML=htmlText;
 
     } else {

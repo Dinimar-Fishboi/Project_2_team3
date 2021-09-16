@@ -3,12 +3,12 @@
   <h3 class="flow-text">Search for items you can exchange your items with</h3>
   <div class="col s12">
     <label>Search by Category</label>
-  <select id="category" class="browser-default" onchange="displayResults()">
-    <option value="" disabled selected>I am looking for...</option>
+  <select id="category" class="browser-default" onfocus="displayOptions()" onchange="displayResults()">
+    {{!-- <option value="" disabled selected>I am looking for...</option>
     <option value="2">Vegetables</option>
     <option value="3">Clothes</option>
     <option value="4">Fruits</option>
-    <option value="1">Other</option>
+    <option value="1">Other</option> --}}
   </select>
   </div>
 </div>
