@@ -36,10 +36,10 @@ async function addNewItem(event){
 
     const title = document.querySelector('#txt').value.trim();
     const description = document.querySelector('#lname').value.trim();
-    // const category_id = document.querySelector('#lname').value.trim();
+    const category_id = document.getElementById('#category').value;
 
-    const e = document.getElementById("dropdown");
-    const category_id = e.options[e.selectedIndex].text;
+    // const e = document.getElementById("dropdown");
+    // const category_id = e.options[e.selectedIndex].text;
     console.log(category_id); 
 
     if (title && description && category_id) {
