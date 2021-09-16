@@ -1,9 +1,5 @@
 function displayOptions(){
   searchCategories();
-
-    
-    // select.innerHTML="";
-    // select.innerHTML=htmlText;
 }
 
 const searchCategories = async () => {
@@ -25,7 +21,7 @@ const searchCategories = async () => {
     });
   
     select.innerHTML=optionText;
-    console.log(optionText);
+
   } else{
     console.log("Error");
   }
