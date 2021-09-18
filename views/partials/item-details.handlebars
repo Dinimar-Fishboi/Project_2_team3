@@ -1,22 +1,17 @@
-<div class="wrapper">
 
-    <form id='updateItem'>
-        <p>Update your item...</p>
-        <input type="text" class="title" placeholder="Title" value="{{title}}" />
-        <input type="text" class="description" placeholder="Description...." />
-        <div class="item-header">
-          {{title}}
-          <p>
-            Description:
-            {{description}}
-          </p>
-
+<div class="col s12 m3">
+      <!---->
+      <div class="card">
+        <div class="card-image">
+          <img src="/images/{{category_id}}.jpg">
+          <span class="card-title">{{title}}</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red" href="userProfile/put/{{id}}"><i class="material-icons">arrow_upward</i></a>
         </div>
-
-        <a class='btn red accent-2' href='/userProfile/put/{{id}}'>Ok</a>
-            <!-- <button onclick="window.location.href='index.html'" class="okbtn" type='submit'>
-
-            OK
-        </button> -->
-    </form>
+        <div class="card-content">
+          <p class="truncate">{{description}}</p>
+            <button type="click" class="btn red accent-2 waves-effect"><a href="userProfile/put/{{id}}">Edit post</a></button>
+        </div>
+      </div>
+      <!---->
+    </div>
 </div>

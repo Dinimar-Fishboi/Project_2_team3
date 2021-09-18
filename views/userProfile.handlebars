@@ -1,44 +1,31 @@
-<!-- <header><p>{{profile}}</p>
-  <button type="button" id="lgt-btn">Logout</button>
-</header>
 
-<form>
-  <input type="text" name="text" id="txt" required />
-  <button type="submit" class="btn-list">
-    <i class="fa fa-plus" aria-hidden="true"></i>
-  </button>
-</form>
-<div class="container">
-  <ul>
-  </ul>
-</div>
-<script src="script.js"></script> -->
 <div class="container">
   <form id='postItem'>
-  <label for="category">Category:</label>
-  <select id="category" class="browser-default" onfocus="displayOptions()">
-   <option value="" disabled selected>Select the category..</option>
-  </select>
-
-
-    <label for="lname">Description:</label><br />
-      <input type="text" id="lname" name="lname" value="" /><br /><br />
-    
+    <label for="category">Category:</label>
+      <select id="category" class="browser-default" onfocus="displayOptions()">
+      <option value="" disabled selected>Select the category..</option>
+      </select>
+      
+      
     <label for="txt">Title:</label><br />
-      <input type="text" name="txt" id="txt" placeholder="Title"/>
-        <button type="submit" class="btn-list">
+        <input type="text" name="txt" id="txt" placeholder="Title"/>
+        <br>
+
+      <label for="lname">Description:</label><br />
+        <input type="text" id="lname" name="lname" placeholder="Description" /><br /><br />
+        <button type="submit" class="btn red accent-2 waves-effect">
           Add new Item
         </button>
-    <br>
-</form>
-<div class="container">
-  {{#if items.length}}
-  {{#each items as |item|}}
-  {{> item-details}}
-  {{/each}}
-  {{/if}}
+      <br>
+  </form>
+  <br>
+  <div class="container">
+  
+    {{#each items as |item|}}
+    {{>item-details}}
+    {{/each}}
 
-</div>
+  </div>
 
 </div>
 
