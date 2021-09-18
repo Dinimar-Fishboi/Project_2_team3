@@ -59,14 +59,71 @@ router.get('/item/:id', async (req, res) => {
   }
 });
 
+// router.get('/userProfile', (req, res) => {
+//   if (!req.session.logged_in) {
+//     res.redirect('/login');
+//     return;
+//   }
+
+//   res.render('userProfile',{logged_in:req.session.logged_in});
+// });
+
+// following route next allows for partials to be loaded. There aren't any
+// Conflict from the above route.
+
 router.get('/userProfile', (req, res) => {
   if (!req.session.logged_in) {
     res.redirect('/login');
     return;
   }
+    Item.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+      attributes: [
+        "id",
+        "title",
+        "description",
+        "category_id"
+      ],
+      include: [
+        { model: User, as: 'user', attributes: ["username"]}
+      ]
+  })
+    .then((itemData) => {
+      if (!itemData) {
+        console.log("there are no items posted by this user")
+      }
+        const items = itemData.map((item) => item.get({ plain: true }));
+        console.log(items)
+        res.render('userProfile',{items, logged_in:req.session.logged_in});
 
-  res.render('userProfile',{logged_in:req.session.logged_in});
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    })
 });
+
+// Below code is to see if we can get the categories to load from the right page
+// router.get('userProfile/put/:id', withAuth, async (req, res) => {
+//   try {
+//       const itemData = await Item.findOne({
+//           where :{
+//               id: req.params.id
+//           },
+//           include: [{ model: User}, { model: Category}],
+//       })
+
+//       const item = itemData.get({ plain: true });
+
+//       res.render('put', item)
+
+//   } catch (err) {
+//       console.log(err)
+//       res.status(500).json(err);
+//   }
+// })
 
 router.post('/items/:category', async (req, res) => {
   try {
