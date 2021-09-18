@@ -12,4 +12,5 @@ const logout = async () => {
   };
   
   document.querySelector('#logoutBtn').addEventListener('click', logout);
+  document.getElementById('mobilelogoutBtn').addEventListener('click',logout);
   
