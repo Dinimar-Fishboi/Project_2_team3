@@ -60,4 +60,42 @@ async function addNewItem(event){
         }
 };
 
-document.querySelector('#postItem').addEventListener('submit', addNewItem)
+function update(){
+    console.log("Button clicked");
+    updateItem(e);
+}
+// Update an existing item
+async function updateItem(event){
+    event.preventDefault();
+
+    const title = document.getElementById('title').value.trim();
+    const description = document.getElementById('description').value.trim();
+    const category_id = document.getElementById('category').value; 
+    const itemId = document.querySelector('#mainContainer').dataset.item;
+    console.log(itemId);
+
+    if (title && description && category_id) {
+        const response = await fetch(`/api/items/${itemId}`, {
+            method: 'PATCH',
+            body: JSON.stringify({ title, description, category_id }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+    
+        if (response.ok) {
+            console.log(response);
+            document.location.replace('/userProfile');
+        } else {
+            console.log(response.statusText);
+        }
+        } else {
+            console.log("Unable to update your item.");
+        }
+};
+
+
+
+
+document.getElementById('updateBtn').addEventListener('click',updateItem);
+// document.querySelector('#postItem').addEventListener('submit', addNewItem);
+// document.getElementById('updateItem').addEventListener('submit',update);
+// document.getElementById('delItemBtn').addEventListener('click',update);

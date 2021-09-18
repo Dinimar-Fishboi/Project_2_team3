@@ -1,5 +1,5 @@
 
-<div class="container" data-item="{{item.id}}" id="mainContainer">
+<div class="container " data-item="{{item.id}}" id="mainContainer">
   <form id="updateItem">
      <label for="category">Category:</label>
       <select id="category" class="browser-default" onfocus="displayOptions()">
@@ -8,18 +8,20 @@
       
       
     <label for="txt">Title:</label><br />
-        <input type="text" name="txt" id="txt" placeholder="Title" value="{{item.title}}"/>
+        <input type="text" name="Title" id="title" placeholder="Title" value="{{item.title}}"/>
         <br>
 
       <label for="lname">Description:</label><br />
-        <input type="text" id="lname" name="lname" placeholder="Description" value="{{item.description}}"/><br /><br />
-        <button type="submit" class="btn red accent-2 waves-effect" id="updateBtn">
+        <input type="text" id="description" name="Description" placeholder="Description" value="{{item.description}}"/><br /><br />
+        <button class="btn red accent-2 waves-effect" id="updateBtn">
           Update
         </button>
         <button class="btn red accent-2 waves-effect" id="delItemBtn">Delete</button>
   </form>
 </div>
 <br>
+
+<button class="red accent-2" id="btnUpdate" onclick="update()">Update Btn</button>
 
 
 <script src="/js/searchItems.js"></script>
