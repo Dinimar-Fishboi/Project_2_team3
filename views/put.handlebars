@@ -8,20 +8,19 @@
       
       
     <label for="txt">Title:</label><br />
-        <input type="text" name="txt" id="txt" placeholder="Title" value="{{title}}"/>
+        <input type="text" name="txt" id="txt" placeholder="Title" value="{{item.title}}"/>
         <br>
 
       <label for="lname">Description:</label><br />
-        <input type="text" id="lname" name="lname" placeholder="Description" value="{{description}}"/><br /><br />
-        <button type="click" class="btn red accent-2 waves-effect" id="updateBtn">
+        <input type="text" id="lname" name="lname" placeholder="Description" value="{{item.description}}"/><br /><br />
+        <button type="submit" class="btn red accent-2 waves-effect" id="updateBtn">
           Update
         </button>
-        <button type="click" class="btn red accent-2 waves-effect" id="delItemBtn">
-          Delete
-        </button>
+        <button class="btn red accent-2 waves-effect" id="delItemBtn">Delete</button>
   </form>
 </div>
 <br>
 
 
 <script src="/js/searchItems.js"></script>
+<script src="/js/profile.js"></script>
