@@ -99,7 +99,9 @@ async function deleteItem(event){
             method: 'DELETE',
             // body: JSON.stringify({ title, description, category_id }),
             headers: { 'Content-Type': 'application/json' },
+            
         });
+        console.log("afterfetch");
     
         if (response.ok) {
             console.log(response);
@@ -112,8 +114,6 @@ async function deleteItem(event){
         }
 
 }
-
-
 
 
 document.getElementById('updateBtn').addEventListener('click',updateItem);
