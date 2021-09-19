@@ -1,7 +1,9 @@
 
-<div class="container">
-  <form id='postItem'>
-    <label for="category">Category:</label>
+<div class="container center">
+  <div class="row">
+    <div class="col s12">
+      <form id='postItem'>
+    <label for="Category">Category:</label>
       <select id="category" class="browser-default" onfocus="displayOptions()">
       <option value="" disabled selected>Select the category..</option>
       </select>
@@ -18,15 +20,23 @@
         </button>
       <br>
   </form>
+
+    </div>
+  </div>
+  
   <br>
-  <div class="container">
+ 
+
+</div>
+
+<div class="container">
+   <div class="row"> 
   
     {{#each items as |item|}}
     {{>item-details}}
     {{/each}}
 
   </div>
-
 </div>
 
 <script src="./js/profile.js"></script>
