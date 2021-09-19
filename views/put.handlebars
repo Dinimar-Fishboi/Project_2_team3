@@ -1,5 +1,6 @@
 
 <div class="container center " data-item="{{item.id}}" id="mainContainer">
+  <h3 class="flow-text">Edit items here (please choose category when updating)</h3>
   <form id="updateItem">
      <label for="category">Category:</label>
       <select id="category" class="browser-default" onfocus="displayOptions()">
@@ -13,6 +14,7 @@
 
       <label for="lname">Description:</label><br />
         <input type="text" id="description" name="Description" placeholder="Description" value="{{item.description}}"/><br /><br />
+        <h3 class="flow-text">You can also delete the item from here.</h3>
         <button class="btn red accent-2 waves-effect" id="updateBtn">
           Update
         </button>
