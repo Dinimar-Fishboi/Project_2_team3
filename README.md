@@ -76,3 +76,9 @@
 
   ## Meet the Developers 
   If you have any questions regarding this project, contact the developers via github. You can find our other work at [Dinimar-Fishboi Github](https://github.com/Dinimar-Fishboi), [vikezme Github](https://github.com/vikezme) and [vish-op Github](https://github.com/vish-op)
+
+  ## License and Copyright
+
+ © Vish Opatha, Vikrant Kumar, Dinimar Fish, 2021
+
+  Licensed under the [MIT License](LICENSE).
